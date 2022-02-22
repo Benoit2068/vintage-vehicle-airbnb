@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_19_150637) do
+ActiveRecord::Schema.define(version: 2022_02_22_180720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "vehicle_id", null: false
+    t.text "comment"
+    t.date "date_start"
+    t.date "date_end"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+    t.index ["vehicle_id"], name: "index_reservations_on_vehicle_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,5 +49,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_150637) do
     t.index ["user_id"], name: "index_vehicles_on_user_id"
   end
 
+  add_foreign_key "reservations", "users"
+  add_foreign_key "reservations", "vehicles"
   add_foreign_key "vehicles", "users"
 end

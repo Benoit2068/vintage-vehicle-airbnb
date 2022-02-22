@@ -5,3 +5,6 @@
       <p>Description : <%= @vehicle.description %> </p>
       <p>Price : <%= @vehicle.price  %></p>
       <p><%= link_to "Vehicles List", vehicles_path, class: "btn btn-primary" %></p>
+      <%# supprimer risque de comflit %>
+      <p><%= link_to "Reservation", new_vehicle_reservation_path(@vehicle), class: "btn btn-primary" %></p>
+      <%# supprimer risque de comflit %>
