@@ -5,7 +5,8 @@
         <h3>Reservation for <%= @vehicle.name %></h3>
         <%= simple_form_for [@vehicle, @reservation] do |f| %>
           <%= f.input :date_start, as: :date %>
-          <%= f.input :date_start, as: :date %>
+          <%= f.input :date_end, as: :date %>
+          <%= f.input :comment, placeholder: 'Enter a comment' %>
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
       </div>
