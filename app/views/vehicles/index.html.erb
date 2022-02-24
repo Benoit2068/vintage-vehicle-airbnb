@@ -1,15 +1,15 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6 offset-3">
-      <h1>Vehicles List</h1>
 
+      <h1>Find your next vehicle...</h1>
+<div class="cards">
       <% @vehicles.each do |vehicle| %>
+      <div class="card-trip">
+        <%= vehicle.photo %>
         <h2><%= vehicle.name %></h2>
         <p>Description : <%= vehicle.description  %></p>
-        <p>price : <%= vehicle.price  %></p>
-        <p><%= link_to "show vehicle's details", vehicle_path(vehicle),  class: "btn btn-primary"  %></p>
+        <p>price : <%= vehicle.price  %>€ per day</p>
+        <p><%= link_to "Show details", vehicle_path(vehicle),  class: "btn btn-primary"  %></p>
+      </div>
       <% end %>
-      <%= link_to "Add new vehicle", new_vehicle_path, class: "btn btn-primary" %>
-    </div>
-  </div>
+
 </div>
+<%= link_to "Add new vehicle", new_vehicle_path, class: "btn btn-primary" %>
