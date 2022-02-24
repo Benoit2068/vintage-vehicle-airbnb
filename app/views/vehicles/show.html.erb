@@ -7,7 +7,9 @@
       <% if @vehicle.photo.attached?  %>
       <%= cl_image_tag @vehicle.photo.key, height: 300, width: 400, crop: :fill %>
       <p><%= link_to "Vehicles List", vehicles_path, class: "btn btn-primary" %></p>
+      <p><%= link_to "Reservation", new_vehicle_reservation_path(@vehicle), class: "btn btn-primary" %></p
       <% end %>
     </div>
   </div>
 </div>
+
