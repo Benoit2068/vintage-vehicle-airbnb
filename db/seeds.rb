@@ -53,8 +53,8 @@ puts "#{new_vehicle.name} is created"
 
 # html_doc.search(".card__name").each do |element|
 #   puts element.text.strip
-#   # puts element.attribute("href").value
+  # puts element.attribute("href").value
 
-# end
+end
 
 puts "Finished!"
