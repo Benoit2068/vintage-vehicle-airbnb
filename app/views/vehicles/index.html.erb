@@ -9,9 +9,9 @@
         <h2><%= vehicle.name %></h2>
         <p>Description : <%= vehicle.description  %></p>
         <p>price : <%= vehicle.price  %>€ per day</p>
-        <p><%= link_to "Show details", vehicle_path(vehicle),  class: "btn btn-primary"  %></p>
+        <p><%= link_to "Show details", vehicle_path(vehicle),  class: "btn btn-gradient"  %></p>
       </div>
       <% end %>
 
 </div>
-<%= link_to "Add new vehicle", new_vehicle_path, class: "btn btn-primary" %>
+<%= link_to "Add new vehicle", new_vehicle_path, class: "btn btn-gradient" %>
