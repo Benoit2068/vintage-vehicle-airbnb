@@ -1,5 +1,5 @@
 
-      <h1>Find your next vehicle...</h1>
+      <h1>Find your next vehicle !</h1>
 <div class="cards">
       <% @vehicles.each do |vehicle| %>
       <div class="card-trip">
@@ -7,11 +7,11 @@
         <%= cl_image_tag vehicle.photo.key, height: 200, width: 300, crop: :fill %>
         <% end %>
         <h2><%= vehicle.name %></h2>
-        <p>Description : <%= vehicle.description  %></p>
-        <p>price : <%= vehicle.price  %>€ per day</p>
-        <p><%= link_to "Show details", vehicle_path(vehicle),  class: "btn btn-gradient"  %></p>
+        <div class="des">
+        <p><%= vehicle.description  %></p>
+        </div>
+        <p><u><strong>Price : <%= vehicle.price  %>€ per day</strong></u></p>
+        <%= link_to "Show details", vehicle_path(vehicle),  class: "btn btn-gradient bottom"  %>
       </div>
       <% end %>
-
 </div>
-<%= link_to "Add new vehicle", new_vehicle_path, class: "btn btn-gradient" %>
