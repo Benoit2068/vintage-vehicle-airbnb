@@ -5,5 +5,5 @@ class Vehicle < ApplicationRecord
   validates :description, presence: true, length: { minimum: 10 }
   validates :price, presence: true
 
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
 end
