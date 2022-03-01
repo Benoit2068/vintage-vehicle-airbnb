@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
 
+
   def new
     @vehicle = Vehicle.find(params[:vehicle_id])
     @reservation = Reservation.new
