@@ -1,5 +1,6 @@
 class VehiclesController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :find_vehicle, only: [:show, :edit, :update]
 
 
