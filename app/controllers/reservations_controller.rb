@@ -1,6 +1,5 @@
 class ReservationsController < ApplicationController
 
-  skip_before_action :authenticate_user!
 
   def new
     @vehicle = Vehicle.find(params[:vehicle_id])
