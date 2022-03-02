@@ -5,8 +5,16 @@ class VehiclesController < ApplicationController
 
 
   def index
-    @vehicles = Vehicle.all
+   # @vehicles = Vehicle.all
+
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query"
+      @vehicles = Vehicle.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @vehicles = Vehicle.all
+    end
   end
+
 
   def show
   end
