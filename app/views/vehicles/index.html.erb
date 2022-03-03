@@ -1,19 +1,17 @@
 
 
 <div class="container"></div>
-<%= form_tag vehicles_path, method: :get do %>
-  <%= text_field_tag :query,
+  <div class="container"></div>
+    <%= form_tag vehicles_path, method: :get, "d-flex" do %>
+    <%= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Find a vehicle"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
       <h1>Find your next vehicle !</h1>
-
-<div class="cards">
+  <div class="cards">
       <% @vehicles.each do |vehicle| %>
       <div class="card-trip">
         <% if vehicle.photo.attached?  %>
@@ -27,4 +25,5 @@
         <%= link_to "Show details", vehicle_path(vehicle),  class: "btn btn-gradient bottom"  %>
       </div>
       <% end %>
+  </div>
 </div>
