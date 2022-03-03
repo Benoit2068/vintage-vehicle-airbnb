@@ -13,6 +13,14 @@ class VehiclesController < ApplicationController
     else
       @vehicles = Vehicle.all
     end
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @vehicles.geocoded.map do |vehicle|
+      {
+        lat: vehicle.latitude,
+        lng: vehicle.longitude
+      }
+    end
+
   end
 
 
