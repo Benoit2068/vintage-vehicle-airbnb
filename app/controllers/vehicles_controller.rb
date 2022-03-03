@@ -49,8 +49,6 @@ class VehiclesController < ApplicationController
     redirect_to vehicle_path(@vehicle)
   end
 
-
-
   private
 
   def find_vehicle
@@ -58,7 +56,7 @@ class VehiclesController < ApplicationController
   end
 
   def vehicle_params
-    params.require(:vehicle).permit(:name, :description, :price, :photo, :user)
+    params.require(:vehicle).permit(:name, :address, :description, :price, :photo, :user)
   end
 
 end

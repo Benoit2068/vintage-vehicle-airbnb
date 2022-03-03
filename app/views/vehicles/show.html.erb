@@ -3,10 +3,10 @@
     <div class="col-6 offset-3">
       <h2><%= @vehicle.name %></h2>
       <p><%= @vehicle.description %> </p>
+      <p><%= @vehicle.address  %></p>
       <p>Price : <%= @vehicle.price  %>€ per day</p>
       <% if @vehicle.photo.attached?  %>
       <%= cl_image_tag @vehicle.photo.key, height: 300, width: 400, crop: :fill %>
-      <p><%= link_to "Back to the List", vehicles_path, class: "btn btn-gradient" %></p>
       <p><%= link_to "Book this car", new_vehicle_reservation_path(@vehicle), class: "btn btn-gradient" %></p>
       <% end %>
     </div>
