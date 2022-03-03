@@ -10,7 +10,7 @@ E-mail: <%= @user.email %>
     <% @user.reservations.each do |reservation| %>
   <div class="card-trip">
     <% if reservation.vehicle.photo.attached?  %>
-    <%= cl_image_tag reservation.vehicle.photo.key, height: 150, width: 200, crop: :fill %>
+    <%= cl_image_tag reservation.vehicle.photo.key, height: 200, width: 300, crop: :fill %>
     <% end %>
     <p> You rent a <%= reservation.vehicle.name %> from <%= reservation.date_start.strftime("%A %d %B %Y") %> to <%= reservation.date_end.strftime("%A %d %B %Y")  %></p>
     <p><%= link_to "See details of the booking", reservation_path(reservation), class: "btn btn-gradient bottom" %></p>
