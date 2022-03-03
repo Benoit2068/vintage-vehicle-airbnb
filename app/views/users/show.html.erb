@@ -1,11 +1,19 @@
-<div class="CircleBadge CircleBadge--medium color-bg-subtle">
-  <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="USER NAME" class="CircleBadge-icon" />
-</div>
 
-<h1>Some informations</h1>
+
+<h1>User informations</h1>
 <address>
-User name: <a href="username@gmail.com">Jon Doe</a><br>
-E-mail: <a href="username@gmail.com">username@gmail.com</a><br>
-Adress: Chemin de la villaire, 3 1040 Echallens<br>
-Suisse
+E-mail: <%= @user.email %>
 </address>
+
+<h1>Your booking list</h1>
+<div class="cards">
+    <% @user.reservations.each do |reservation| %>
+  <div class="card-trip">
+    <% if reservation.vehicle.photo.attached?  %>
+    <%= cl_image_tag reservation.vehicle.photo.key, height: 150, width: 200, crop: :fill %>
+    <% end %>
+    <p> You rent a <%= reservation.vehicle.name %> from <%= reservation.date_start.strftime("%A %d %B %Y") %> to <%= reservation.date_end.strftime("%A %d %B %Y")  %></p>
+    <p><%= link_to "See details of the booking", reservation_path(reservation), class: "btn btn-gradient bottom" %></p>
+  </div>
+    <% end %>
+</div>

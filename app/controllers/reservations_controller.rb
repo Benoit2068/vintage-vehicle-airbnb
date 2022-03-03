@@ -13,12 +13,12 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
     if @reservation.date_start < @reservation.date_end
       if @reservation.save
-        # redirect_to vehicle_path(@reservation.vehicle)
-        redirect_to reservation_path(@reservation)
+        redirect_to reservation_path(@reservation), notice: "Your Booking is Ok"
       else
-        render :new
+        render :new, alert: 'Error your booking is not valid!'
       end
     else
+      flash.now[:alert] = 'Error the end date must be greater than the start date!'
       render :new
     end
   end

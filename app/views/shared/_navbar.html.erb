@@ -31,7 +31,7 @@
             <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Message", "#", class: "dropdown-item" %>
-              <%= link_to "My reservations", "#", class: "dropdown-item" %>
+              <%= link_to "My reservations", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
