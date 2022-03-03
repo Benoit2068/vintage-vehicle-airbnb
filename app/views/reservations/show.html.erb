@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+    <div class=".cards">
+      <h1>Booking for <%= @reservation.user.email %></h1>
+      <p>You rent a <%= @reservation.vehicle.name %> from <%= @reservation.date_start.strftime("%A %d %B %Y") %> to <%= @reservation.date_end.strftime("%A %d %B %Y")  %></p>
+      <p> Cost of the rental for <%= @duration %> day = <%= @reservation_price  %>€ </p>
+      <% if @reservation.vehicle.photo.attached?  %>
+      <%= cl_image_tag @reservation.vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+      <p><%= link_to "Back to the List", vehicles_path, class: "btn btn-gradient bottom" %></p>
+      <% end %>
+
+
+    </div>
+    </div>
+  </div>
+</div>

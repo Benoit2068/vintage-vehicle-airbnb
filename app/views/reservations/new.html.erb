@@ -4,8 +4,9 @@
       <div class="bg-white rounded p-3 shadow">
         <h3>Reservation for <%= @vehicle.name %></h3>
         <%= simple_form_for [@vehicle, @reservation] do |f| %>
-          <%= f.input :date_start, as: :date %>
-          <%= f.input :date_end, as: :date %>
+        <%# <input type="date" name="born_on" id="born_on" /> %>
+          <%= f.input :date_start, as: :date, order: [:day, :month, :year], label: 'Start date of booking'%>
+          <%= f.input :date_end, as: :date, order: [:day, :month, :year], label: 'End date of booking' %>
           <%= f.input :comment, placeholder: 'Enter a comment' %>
           <%= f.submit class: 'btn btn-gradient' %>
         <% end %>
