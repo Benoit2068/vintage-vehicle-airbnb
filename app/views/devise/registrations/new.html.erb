@@ -1,7 +1,14 @@
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <% if f.error_notification %>
+    <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
+      <span><%= f.error_notification %></span>
+      <a data-bs-dismiss="alert" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+  <% end %>
 
   <div class="form-inputs">
     <%= f.input :email,
