@@ -1,14 +1,11 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6 offset-3">
+<div class="card-show">
       <h2><%= @vehicle.name %></h2>
       <p><%= @vehicle.description %> </p>
-      <p>Price : <%= @vehicle.price  %>€ per day</p>
+      <p><u><em>Where to find the vehicle ? </em></u></p>
+      <p><%= @vehicle.address  %></p>
+      <p><u><strong>Price : <%= @vehicle.price  %>€ per day</u></strong></p>
       <% if @vehicle.photo.attached?  %>
-      <%= cl_image_tag @vehicle.photo.key, height: 300, width: 400, crop: :fill %>
-      <p><%= link_to "Back to the List", vehicles_path, class: "btn btn-gradient" %></p>
+      <%= cl_image_tag @vehicle.photo.key, height: 600, width: 800, crop: :fill %>
       <p><%= link_to "Book this car", new_vehicle_reservation_path(@vehicle), class: "btn btn-gradient" %></p>
       <% end %>
-    </div>
-  </div>
 </div>
