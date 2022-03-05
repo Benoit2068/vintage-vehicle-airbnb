@@ -1,8 +1,9 @@
 .banner {
+  height: calc(100vh - 95px);
   background-size: cover;
-  background-position: center;
-  padding: 150px 0;
-  background-image: asset-url("classic_cars_banner.jpg");
+  background-position: bottom;
+  padding: 110px 0;
+  background-image: asset-url("home_page.jpg");
 }
 
 .banner h1 {
@@ -11,11 +12,17 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
+  color: white;
 }
 
 .banner p {
   font-size: 20px;
   color: white;
-  opacity: .7;
+  opacity: .8;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.container.banner-container {
+  margin: 0 auto;
+  width: 80%;
 }
