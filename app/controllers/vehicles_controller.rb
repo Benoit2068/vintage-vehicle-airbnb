@@ -13,6 +13,14 @@ class VehiclesController < ApplicationController
     else
       @vehicles = Vehicle.all
     end
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @vehicles.geocoded.map do |vehicle|
+      {
+        lat: vehicle.latitude,
+        lng: vehicle.longitude
+      }
+    end
+
   end
 
 
@@ -41,8 +49,6 @@ class VehiclesController < ApplicationController
     redirect_to vehicle_path(@vehicle)
   end
 
-
-
   private
 
   def find_vehicle
@@ -50,7 +56,7 @@ class VehiclesController < ApplicationController
   end
 
   def vehicle_params
-    params.require(:vehicle).permit(:name, :description, :price, :photo, :user)
+    params.require(:vehicle).permit(:name, :address, :description, :price, :photo, :user)
   end
 
 end
